@@ -8,11 +8,13 @@ https://docs.google.com/document/d/1OB7Fts9VMZ3AkT9xolClvp_bZjm67BbrXZkXgF2u6bs/
 
 # Agenda of the Workshop:
 
-Day01: Setting up the Appium android environment needed for automation.
+Day01: 
+- Setting up the Appium android environment needed for automation.
 
-Day02: <br>a) Connect android device/start emulator</br> 
-       <br>b) Inspect app (web/native/hybrid)</br>
-             
-Day03: <br>a) Create sample A</br>ppium script</br>
-       <br>c) Run the Appium Script on real device/emulator</br>
+Day02: 
+- Connect android device/start emulator
+- Inspect app (web/native/hybrid)           
 
+Day03: 
+- Create sample Appium script
+- Run the Appium Script on real device/emulator
