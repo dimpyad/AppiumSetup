@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="AndroidNativeSuite" verbose="1" parallel="tests" thread-count="2">
+    <test name="Android native app test on Android Device">
+        <parameter name="platform" value="Android 11"/>
+        <parameter name="device" value="Oneplus"/>
+        <parameter name="udid" value="036f84c9"/>
+        <parameter name="systemPort" value="8200"/>
+        <classes>
+            <class name="AndroidParallelTests" />
+        </classes>
+    </test>
+    <test name="Android native app test on Android Emulator">
+        <parameter name="platform" value="Android 11"/>
+        <parameter name="device" value="Pixel emulator"/>
+        <parameter name="udid" value="emulator-5554"/>
+        <parameter name="systemPort" value="8201"/>
+        <classes>
+            <class name="AndroidParallelTests" />
+        </classes>
+    </test>
+</suite>
