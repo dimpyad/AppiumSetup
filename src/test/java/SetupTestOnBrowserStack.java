@@ -2,13 +2,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 
-public class SetupTestNativeAndHybridApp {
+public class SetupTestOnBrowserStack {
 
 	/*
 	 * This code will be performing the following using Appium:
@@ -20,12 +18,28 @@ public class SetupTestNativeAndHybridApp {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		
         capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("deviceName", "Oneplus");
         capabilities.setCapability("automationName", "UIAutomator2");
         capabilities.setCapability("app", "https://github.com/cloudgrey-io/the-app/releases/download/v1.10.0/TheApp-v1.10.0.apk");
-
-        String url = "http://localhost:4723/wd/hub";
-        AndroidDriver<WebElement> driver = new AndroidDriver<WebElement>(new URL(url), capabilities);
+        
+        // Set your access credentials
+        capabilities.setCapability("browserstack.user", "user");
+        capabilities.setCapability("browserstack.key", "key");
+        
+        // Set URL of the application under test
+        capabilities.setCapability("app", "apppath");
+        
+        // Specify device and os_version for testing
+        capabilities.setCapability("device", "Xiaomi Redmi Note 9");
+        capabilities.setCapability("os_version", "10.0");
+          
+        // Set other BrowserStack capabilities
+        capabilities.setCapability("project", "Appium Workshop Setup Project");
+        capabilities.setCapability("build", "Java Android");
+        capabilities.setCapability("name", "setup_browserstack_android_test");
+       
+        
+        AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(
+                new URL("http://hub.browserstack.com/wd/hub"), capabilities);        
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         
         
@@ -37,7 +51,7 @@ public class SetupTestNativeAndHybridApp {
         String webViewContext = "";
         
         /*
-         * Waiting for web view context to be active and available to interact
+         * Waiting for web view context to be active
          */
         while(counter>0)
         {
